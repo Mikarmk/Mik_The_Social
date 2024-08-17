@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мик</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Всем привет</h1>
+    <nav>
+        <a href="{{ url_for('register') }}">Регистрация</a> |
+        <a href="{{ url_for('login') }}">Логин</a> |
+        <a href="{{ url_for('logout') }}">Выйти из аккаунта</a> |
+        <a href="{{ url_for('post') }}">Сделать пост</a>
+    </nav>
+
+    <hr>
+
+    <div class="posts-container">
+        {% for post in posts %}
+            <div class="post">
+                <p class="post-author"><strong>{{ post.author.username }}:</strong></p>
+                <p class="post-content">{{ post.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

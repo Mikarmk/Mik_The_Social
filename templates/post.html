@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form method="POST" class="registration-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label }}
+                {{ form.username(size=20, class='form-control') }}<br>
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(size=20, class='form-control') }}<br>
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password(size=20, class='form-control') }}<br>
+            </div>
+            <div class="form-group">
+                {{ form.submit(class='btn-submit') }}
+            </div>
+        </form>
+        <a href="{{ url_for('login') }}" class="login-link">Уже есть аккаунт? Переходи сюда!</a>
+    </div>
+</body>
+</html>
